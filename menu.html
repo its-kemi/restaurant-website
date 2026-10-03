@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu | La Bella Restaurant</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .brand-font {
+            font-family: "Playfair Display", serif;
+        }
+
+        .hero-section {
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.58),
+                    rgba(0, 0, 0, 0.58)
+                ),
+                url("images/restaurant.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .food-card {
+            transition: all 0.35s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .food-card img {
+            transition: transform 0.5s ease;
+        }
+
+        .food-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .category-btn.active {
+            background-color: #ea580c;
+            color: white;
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.25);
+        }
+
+        .favorite-btn.active {
+            background-color: #ea580c;
+            color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .search-box {
+            display: none;
+        }
+
+        .search-box.show {
+            display: block;
+        }
+
+        .cart-panel {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .cart-panel.show {
+            transform: translateX(0);
+        }
+
+        .cart-overlay {
+            display: none;
+        }
+
+        .cart-overlay.show {
+            display: block;
+        }
+    </style>
+</head>
+
+
+<body class="bg-orange-50 text-gray-800">
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
+
+    <nav class="max-w-7xl mx-auto px-5 lg:px-8">
+
+        <div class="h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a
+                href="index.html"
+                class="flex items-center gap-3 text-orange-600"
+            >
+
+                <div
+                    class="w-11 h-11 rounded-full bg-orange-100
+                           flex items-center justify-center"
+                >
+                    <i class="fa-solid fa-utensils text-lg"></i>
+                </div>
+
+                <span class="brand-font text-2xl font-bold">
+                    La Bella
+                </span>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex items-center gap-8">
+
+                <li>
+                    <a
+                        href="index.html"
+                        class="flex items-center gap-2 text-gray-600
+                               font-medium hover:text-orange-600 transition"
+                    >
+                        <i class="fa-solid fa-house text-sm"></i>
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="menu.html"
+                        class="flex items-center gap-2 text-orange-600
+                               font-semibold"
+                    >
+                        <i class="fa-solid fa-bowl-food text-sm"></i>
+                        Menu
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="about.html"
+                        class="flex items-center gap-2 text-gray-600
+                               font-medium hover:text-orange-600 transition"
+                    >
+                        <i class="fa-solid fa-circle-info text-sm"></i>
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="contact.html"
+                        class="flex items-center gap-2 text-gray-600
+                               font-medium hover:text-orange-600 transition"
+                    >
+                        <i class="fa-solid fa-phone text-sm"></i>
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+
+                <!-- Search -->
+                <button
+                    id="search-button"
+                    type="button"
+                    class="w-10 h-10 rounded-full bg-orange-50
+                           text-orange-600 hover:bg-orange-600
+                           hover:text-white transition"
+                >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+
+                <!-- Cart -->
+                <button
+                    id="cart-button"
+                    type="button"
+                    class="relative w-10 h-10 rounded-full bg-orange-50
+                           text-orange-600 hover:bg-orange-600
+                           hover:text-white transition"
+                >
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span
+                        id="cart-count"
+                        class="absolute -top-1 -right-1
+                               min-w-5 h-5 px-1 rounded-full
+                               bg-orange-600 text-white
+                               text-xs font-bold
+                               flex items-center justify-center"
+                    >
+                        0
+                    </span>
+                </button>
+
+
+                <!-- Book Table -->
+                <a
+                    href="contact.html"
+                    class="hidden sm:flex items-center gap-2
+                           bg-orange-600 text-white
+                           px-5 py-2.5 rounded-full
+                           font-semibold
+                           hover:bg-orange-700 transition"
+                >
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Book a Table
+                </a>
+
+
+                <!-- Mobile Menu Button -->
+                <button
+                    id="mobile-menu-button"
+                    type="button"
+                    class="md:hidden w-10 h-10 rounded-full
+                           bg-orange-50 text-orange-600"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Search Box -->
+        <div id="search-box" class="search-box pb-4">
+
+            <div class="relative">
+
+                <input
+                    id="search-input"
+                    type="search"
+                    placeholder="Search for food..."
+                    class="w-full border border-orange-100
+                           rounded-full px-5 py-3 pr-12
+                           outline-none focus:ring-2
+                           focus:ring-orange-500"
+                >
+
+                <i
+                    class="fa-solid fa-magnifying-glass
+                           absolute right-5 top-1/2
+                           -translate-y-1/2 text-gray-400"
+                ></i>
+
+            </div>
+
+        </div>
+
+
+        <!-- Mobile Menu -->
+        <div
+            id="mobile-menu"
+            class="mobile-menu md:hidden pb-5"
+        >
+
+            <div class="border-t pt-4 space-y-2">
+
+                <a
+                    href="index.html"
+                    class="block px-4 py-3 rounded-xl
+                           hover:bg-orange-50"
+                >
+                    <i class="fa-solid fa-house mr-2"></i>
+                    Home
+                </a>
+
+                <a
+                    href="menu.html"
+                    class="block px-4 py-3 rounded-xl
+                           bg-orange-50 text-orange-600 font-semibold"
+                >
+                    <i class="fa-solid fa-bowl-food mr-2"></i>
+                    Menu
+                </a>
+
+                <a
+                    href="about.html"
+                    class="block px-4 py-3 rounded-xl
+                           hover:bg-orange-50"
+                >
+                    <i class="fa-solid fa-circle-info mr-2"></i>
+                    About
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="block px-4 py-3 rounded-xl
+                           hover:bg-orange-50"
+                >
+                    <i class="fa-solid fa-phone mr-2"></i>
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero-section relative min-h-[520px] flex items-center">
+
+    <div class="max-w-7xl mx-auto px-6 w-full">
+
+        <div class="max-w-3xl text-white">
+
+            <div
+                class="inline-flex items-center gap-2
+                       bg-white/15 backdrop-blur-sm
+                       border border-white/20
+                       rounded-full px-5 py-2 mb-6"
+            >
+                <i class="fa-solid fa-utensils text-orange-300"></i>
+
+                <span
+                    class="text-sm font-semibold tracking-widest uppercase"
+                >
+                    Our Menu
+                </span>
+            </div>
+
+
+            <h1
+                class="text-5xl md:text-6xl lg:text-7xl
+                       font-bold leading-tight"
+            >
+                Delicious Food
+                <span class="text-orange-300 block md:inline">
+                    For Everyone
+                </span>
+            </h1>
+
+
+            <p
+                class="text-lg md:text-xl text-gray-200
+                       mt-6 max-w-2xl leading-relaxed"
+            >
+                Discover fresh ingredients, authentic flavors
+                and beautifully prepared dishes made with
+                passion by our professional chefs.
+            </p>
+
+
+            <div class="flex flex-wrap gap-4 mt-8">
+
+                <a
+                    href="#menu"
+                    class="inline-flex items-center gap-2
+                           bg-orange-600 text-white
+                           px-7 py-3.5 rounded-full
+                           font-semibold
+                           hover:bg-orange-700 transition"
+                >
+                    Explore Menu
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="inline-flex items-center gap-2
+                           bg-white/10 backdrop-blur-sm
+                           border border-white/30
+                           text-white px-7 py-3.5
+                           rounded-full font-semibold
+                           hover:bg-white hover:text-gray-900
+                           transition"
+                >
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Book a Table
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MENU
+========================================================= -->
+
+<main id="menu">
+
+<section class="py-20 bg-orange-50">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+
+        <!-- Section Heading -->
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+
+            <span
+                class="text-orange-600 font-semibold
+                       uppercase tracking-widest text-sm"
+            >
+                Explore Our Dishes
+            </span>
+
+            <h2
+                class="text-4xl md:text-5xl font-bold
+                       text-gray-900 mt-3"
+            >
+                Our Special Menu
+            </h2>
+
+            <p class="text-gray-500 mt-4 leading-relaxed">
+                From classic favorites to chef's special dishes,
+                there is something delicious for everyone.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             CATEGORIES
+        ================================================= -->
+
+        <div
+            id="menu-categories"
+            class="flex flex-wrap justify-center
+                   gap-3 mb-14"
+        >
+
+            <button
+                type="button"
+                data-category="all"
+                class="category-btn active
+                       px-6 py-3 rounded-full
+                       bg-white text-gray-700
+                       font-semibold transition"
+            >
+                <i class="fa-solid fa-border-all mr-2"></i>
+                All
+            </button>
+
+
+            <button
+                type="button"
+                data-category="burger"
+                class="category-btn
+                       px-6 py-3 rounded-full
+                       bg-white text-gray-700
+                       font-semibold transition"
+            >
+                <i class="fa-solid fa-burger mr-2"></i>
+                Burgers
+            </button>
+
+
+            <button
+                type="button"
+                data-category="pizza"
+                class="category-btn
+                       px-6 py-3 rounded-full
+                       bg-white text-gray-700
+                       font-semibold transition"
+            >
+                <i class="fa-solid fa-pizza-slice mr-2"></i>
+                Pizza
+            </button>
+
+
+            <button
+                type="button"
+                data-category="pasta"
+                class="category-btn
+                       px-6 py-3 rounded-full
+                       bg-white text-gray-700
+                       font-semibold transition"
+            >
+                <i class="fa-solid fa-bowl-food mr-2"></i>
+                Pasta
+            </button>
+
+
+            <button
+                type="button"
+                data-category="healthy"
+                class="category-btn
+                       px-6 py-3 rounded-full
+                       bg-white text-gray-700
+                       font-semibold transition"
+            >
+                <i class="fa-solid fa-leaf mr-2"></i>
+                Healthy
+            </button>
+
+
+            <button
+                type="button"
+                data-category="steak"
+                class="category-btn
+                       px-6 py-3 rounded-full
+                       bg-white text-gray-700
+                       font-semibold transition"
+            >
+                <i class="fa-solid fa-drumstick-bite mr-2"></i>
+                Steak
+            </button>
+
+
+            <button
+                type="button"
+                data-category="dessert"
+                class="category-btn
+                       px-6 py-3 rounded-full
+                       bg-white text-gray-700
+                       font-semibold transition"
+            >
+                <i class="fa-solid fa-ice-cream mr-2"></i>
+                Dessert
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOD CARDS
+        ================================================= -->
+
+        <div
+            id="food-container"
+            class="grid grid-cols-1 md:grid-cols-2
+                   lg:grid-cols-3 gap-8"
+        >
+
+
+            <!-- CARD 1 -->
+
+            <article
+                data-category="burger"
+                class="food-card group bg-white
+                       rounded-3xl overflow-hidden
+                       shadow-md hover:shadow-2xl"
+            >
+
+                <div class="relative h-64 overflow-hidden">
+
+                    <img
+                        src="images/burger.jpg"
+                        alt="Classic Burger"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <span
+                        class="absolute top-4 left-4
+                               bg-orange-600 text-white
+                               px-3 py-1.5 rounded-full
+                               text-xs font-bold"
+                    >
+                        Popular
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="favorite-btn absolute top-4 right-4
+                               w-10 h-10 rounded-full
+                               bg-white text-orange-600
+                               shadow-md transition"
+                    >
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <div class="flex justify-between gap-4">
+
+                        <h3 class="text-xl font-bold">
+                            Classic Burger
+                        </h3>
+
+                        <span
+                            class="text-xl font-bold
+                                   text-orange-600"
+                        >
+                            $12
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-gray-500 text-sm mt-3 leading-relaxed">
+                        Juicy beef burger with fresh vegetables,
+                        cheese and our special sauce.
+                    </p>
+
+
+                    <div class="flex items-center gap-4 mt-4">
+
+                        <span
+                            class="text-yellow-500
+                                   font-semibold text-sm"
+                        >
+                            <i class="fa-solid fa-star"></i>
+                            4.9
+                        </span>
+
+                        <span class="text-gray-400 text-sm">
+                            120 Reviews
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="flex justify-between items-center
+                               mt-5 pt-5 border-t"
+                    >
+
+                        <span class="text-gray-500 text-sm">
+                            <i class="fa-regular fa-clock mr-1"></i>
+                            15 min
+                        </span>
+
+                        <button
+                            type="button"
+                            class="add-to-cart
+                                   bg-orange-600 text-white
+                                   px-5 py-2.5 rounded-full
+                                   font-semibold
+                                   hover:bg-orange-700 transition"
+                        >
+                            <i class="fa-solid fa-cart-plus mr-2"></i>
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 2 -->
+
+            <article
+                data-category="pizza"
+                class="food-card group bg-white
+                       rounded-3xl overflow-hidden
+                       shadow-md hover:shadow-2xl"
+            >
+
+                <div class="relative h-64 overflow-hidden">
+
+                    <img
+                        src="images/pizza.jpg"
+                        alt="Italian Pizza"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <button
+                        type="button"
+                        class="favorite-btn absolute top-4 right-4
+                               w-10 h-10 rounded-full
+                               bg-white text-orange-600
+                               shadow-md transition"
+                    >
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <div class="flex justify-between gap-4">
+
+                        <h3 class="text-xl font-bold">
+                            Italian Pizza
+                        </h3>
+
+                        <span
+                            class="text-xl font-bold
+                                   text-orange-600"
+                        >
+                            $15
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-gray-500 text-sm mt-3 leading-relaxed">
+                        Crispy Italian pizza with mozzarella,
+                        tomato and fresh herbs.
+                    </p>
+
+
+                    <div class="flex items-center gap-4 mt-4">
+
+                        <span
+                            class="text-yellow-500
+                                   font-semibold text-sm"
+                        >
+                            <i class="fa-solid fa-star"></i>
+                            4.8
+                        </span>
+
+                        <span class="text-gray-400 text-sm">
+                            98 Reviews
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="flex justify-between items-center
+                               mt-5 pt-5 border-t"
+                    >
+
+                        <span class="text-gray-500 text-sm">
+                            <i class="fa-regular fa-clock mr-1"></i>
+                            20 min
+                        </span>
+
+                        <button
+                            type="button"
+                            class="add-to-cart
+                                   bg-orange-600 text-white
+                                   px-5 py-2.5 rounded-full
+                                   font-semibold
+                                   hover:bg-orange-700 transition"
+                        >
+                            <i class="fa-solid fa-cart-plus mr-2"></i>
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 3 -->
+
+            <article
+                data-category="pasta"
+                class="food-card group bg-white
+                       rounded-3xl overflow-hidden
+                       shadow-md hover:shadow-2xl"
+            >
+
+                <div class="relative h-64 overflow-hidden">
+
+                    <img
+                        src="images/pasta.jpg"
+                        alt="Creamy Pasta"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <span
+                        class="absolute top-4 left-4
+                               bg-gray-900 text-white
+                               px-3 py-1.5 rounded-full
+                               text-xs font-bold"
+                    >
+                        Chef's Choice
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="favorite-btn absolute top-4 right-4
+                               w-10 h-10 rounded-full
+                               bg-white text-orange-600
+                               shadow-md transition"
+                    >
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <div class="flex justify-between gap-4">
+
+                        <h3 class="text-xl font-bold">
+                            Creamy Pasta
+                        </h3>
+
+                        <span
+                            class="text-xl font-bold
+                                   text-orange-600"
+                        >
+                            $13
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-gray-500 text-sm mt-3 leading-relaxed">
+                        Creamy pasta with parmesan cheese,
+                        vegetables and special herbs.
+                    </p>
+
+
+                    <div class="flex items-center gap-4 mt-4">
+
+                        <span
+                            class="text-yellow-500
+                                   font-semibold text-sm"
+                        >
+                            <i class="fa-solid fa-star"></i>
+                            4.7
+                        </span>
+
+                        <span class="text-gray-400 text-sm">
+                            86 Reviews
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="flex justify-between items-center
+                               mt-5 pt-5 border-t"
+                    >
+
+                        <span class="text-gray-500 text-sm">
+                            <i class="fa-regular fa-clock mr-1"></i>
+                            18 min
+                        </span>
+
+                        <button
+                            type="button"
+                            class="add-to-cart
+                                   bg-orange-600 text-white
+                                   px-5 py-2.5 rounded-full
+                                   font-semibold
+                                   hover:bg-orange-700 transition"
+                        >
+                            <i class="fa-solid fa-cart-plus mr-2"></i>
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 4 -->
+
+            <article
+                data-category="healthy"
+                class="food-card group bg-white
+                       rounded-3xl overflow-hidden
+                       shadow-md hover:shadow-2xl"
+            >
+
+                <div class="relative h-64 overflow-hidden">
+
+                    <img
+                        src="images/salad.jpg"
+                        alt="Fresh Salad"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <button
+                        type="button"
+                        class="favorite-btn absolute top-4 right-4
+                               w-10 h-10 rounded-full
+                               bg-white text-orange-600
+                               shadow-md transition"
+                    >
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <div class="flex justify-between gap-4">
+
+                        <h3 class="text-xl font-bold">
+                            Fresh Salad
+                        </h3>
+
+                        <span
+                            class="text-xl font-bold
+                                   text-orange-600"
+                        >
+                            $9
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-gray-500 text-sm mt-3 leading-relaxed">
+                        Fresh vegetables with homemade dressing
+                        and healthy ingredients.
+                    </p>
+
+
+                    <div class="flex items-center gap-4 mt-4">
+
+                        <span
+                            class="text-yellow-500
+                                   font-semibold text-sm"
+                        >
+                            <i class="fa-solid fa-star"></i>
+                            4.6
+                        </span>
+
+                        <span class="text-gray-400 text-sm">
+                            72 Reviews
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="flex justify-between items-center
+                               mt-5 pt-5 border-t"
+                    >
+
+                        <span class="text-gray-500 text-sm">
+                            <i class="fa-regular fa-clock mr-1"></i>
+                            10 min
+                        </span>
+
+                        <button
+                            type="button"
+                            class="add-to-cart
+                                   bg-orange-600 text-white
+                                   px-5 py-2.5 rounded-full
+                                   font-semibold
+                                   hover:bg-orange-700 transition"
+                        >
+                            <i class="fa-solid fa-cart-plus mr-2"></i>
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 5 -->
+
+            <article
+                data-category="steak"
+                class="food-card group bg-white
+                       rounded-3xl overflow-hidden
+                       shadow-md hover:shadow-2xl"
+            >
+
+                <div class="relative h-64 overflow-hidden">
+
+                    <img
+                        src="images/steak.jpg"
+                        alt="Grilled Steak"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <span
+                        class="absolute top-4 left-4
+                               bg-gray-900 text-white
+                               px-3 py-1.5 rounded-full
+                               text-xs font-bold"
+                    >
+                        Premium
+                    </span>
+
+
+                    <button
+                        type="button"
+                        class="favorite-btn absolute top-4 right-4
+                               w-10 h-10 rounded-full
+                               bg-white text-orange-600
+                               shadow-md transition"
+                    >
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <div class="flex justify-between gap-4">
+
+                        <h3 class="text-xl font-bold">
+                            Grilled Steak
+                        </h3>
+
+                        <span
+                            class="text-xl font-bold
+                                   text-orange-600"
+                        >
+                            $24
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-gray-500 text-sm mt-3 leading-relaxed">
+                        Tender grilled steak served with fresh
+                        vegetables and special sauce.
+                    </p>
+
+
+                    <div class="flex items-center gap-4 mt-4">
+
+                        <span
+                            class="text-yellow-500
+                                   font-semibold text-sm"
+                        >
+                            <i class="fa-solid fa-star"></i>
+                            5.0
+                        </span>
+
+                        <span class="text-gray-400 text-sm">
+                            150 Reviews
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="flex justify-between items-center
+                               mt-5 pt-5 border-t"
+                    >
+
+                        <span class="text-gray-500 text-sm">
+                            <i class="fa-regular fa-clock mr-1"></i>
+                            25 min
+                        </span>
+
+                        <button
+                            type="button"
+                            class="add-to-cart
+                                   bg-orange-600 text-white
+                                   px-5 py-2.5 rounded-full
+                                   font-semibold
+                                   hover:bg-orange-700 transition"
+                        >
+                            <i class="fa-solid fa-cart-plus mr-2"></i>
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARD 6 -->
+
+            <article
+                data-category="dessert"
+                class="food-card group bg-white
+                       rounded-3xl overflow-hidden
+                       shadow-md hover:shadow-2xl"
+            >
+
+                <div class="relative h-64 overflow-hidden">
+
+                    <img
+                        src="images/dessert.jpg"
+                        alt="Special Dessert"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <button
+                        type="button"
+                        class="favorite-btn absolute top-4 right-4
+                               w-10 h-10 rounded-full
+                               bg-white text-orange-600
+                               shadow-md transition"
+                    >
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <div class="flex justify-between gap-4">
+
+                        <h3 class="text-xl font-bold">
+                            Special Dessert
+                        </h3>
+
+                        <span
+                            class="text-xl font-bold
+                                   text-orange-600"
+                        >
+                            $8
+                        </span>
+
+                    </div>
+
+
+                    <p class="text-gray-500 text-sm mt-3 leading-relaxed">
+                        Delicious homemade dessert with fresh
+                        fruits and cream.
+                    </p>
+
+
+                    <div class="flex items-center gap-4 mt-4">
+
+                        <span
+                            class="text-yellow-500
+                                   font-semibold text-sm"
+                        >
+                            <i class="fa-solid fa-star"></i>
+                            4.9
+                        </span>
+
+                        <span class="text-gray-400 text-sm">
+                            64 Reviews
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="flex justify-between items-center
+                               mt-5 pt-5 border-t"
+                    >
+
+                        <span class="text-gray-500 text-sm">
+                            <i class="fa-regular fa-clock mr-1"></i>
+                            8 min
+                        </span>
+
+                        <button
+                            type="button"
+                            class="add-to-cart
+                                   bg-orange-600 text-white
+                                   px-5 py-2.5 rounded-full
+                                   font-semibold
+                                   hover:bg-orange-700 transition"
+                        >
+                            <i class="fa-solid fa-cart-plus mr-2"></i>
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- No Results -->
+
+        <div
+            id="no-results"
+            class="hidden text-center py-16"
+        >
+
+            <i
+                class="fa-solid fa-utensils
+                       text-5xl text-gray-300"
+            ></i>
+
+            <h3 class="text-2xl font-bold mt-4">
+                No dishes found
+            </h3>
+
+            <p class="text-gray-500 mt-2">
+                Try another category or search term.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="py-20 bg-white">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div
+            class="relative overflow-hidden
+                   rounded-3xl bg-orange-600
+                   text-white px-6 py-16
+                   text-center"
+        >
+
+            <div
+                class="absolute -top-20 -right-20
+                       w-64 h-64 rounded-full
+                       bg-white/10"
+            ></div>
+
+            <div
+                class="absolute -bottom-24 -left-20
+                       w-72 h-72 rounded-full
+                       bg-white/10"
+            ></div>
+
+
+            <div class="relative">
+
+                <div
+                    class="w-16 h-16 mx-auto
+                           rounded-full bg-white/15
+                           flex items-center justify-center mb-6"
+                >
+                    <i class="fa-solid fa-utensils text-2xl"></i>
+                </div>
+
+
+                <h2
+                    class="text-3xl md:text-4xl
+                           font-bold"
+                >
+                    Ready to Enjoy a Delicious Meal?
+                </h2>
+
+
+                <p
+                    class="text-orange-100
+                           max-w-2xl mx-auto
+                           mt-4 leading-relaxed"
+                >
+                    Visit La Bella Restaurant and enjoy
+                    fresh food prepared with passion,
+                    quality ingredients and unforgettable flavor.
+                </p>
+
+
+                <a
+                    href="contact.html"
+                    class="inline-flex items-center gap-3
+                           mt-8 bg-white
+                           text-orange-600
+                           px-7 py-3.5
+                           rounded-full font-bold
+                           hover:bg-orange-50 transition"
+                >
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Book a Table
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="bg-gray-950 text-white">
+
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-2
+                   lg:grid-cols-4 gap-12"
+        >
+
+
+            <!-- About -->
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="flex items-center gap-3
+                           text-2xl font-bold text-orange-500"
+                >
+
+                    <div
+                        class="w-10 h-10 rounded-full
+                               bg-orange-500/10
+                               flex items-center
+                               justify-center"
+                    >
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+
+                    <span class="brand-font">
+                        La Bella
+                    </span>
+
+                </a>
+
+
+                <p
+                    class="text-gray-400
+                           leading-relaxed mt-5"
+                >
+                    Delicious food, fresh ingredients
+                    and beautiful moments. Every dish
+                    is prepared with care and passion.
+                </p>
+
+
+                <div class="flex gap-3 mt-6">
+
+                    <a
+                        href="#"
+                        class="w-10 h-10 rounded-full
+                               bg-gray-900
+                               flex items-center justify-center
+                               hover:bg-orange-600 transition"
+                    >
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="w-10 h-10 rounded-full
+                               bg-gray-900
+                               flex items-center justify-center
+                               hover:bg-orange-600 transition"
+                    >
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="w-10 h-10 rounded-full
+                               bg-gray-900
+                               flex items-center justify-center
+                               hover:bg-orange-600 transition"
+                    >
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Links -->
+
+            <div>
+
+                <h3 class="text-lg font-bold mb-6">
+                    Quick Links
+                </h3>
+
+                <ul class="space-y-4 text-gray-400">
+
+                    <li>
+                        <a
+                            href="index.html"
+                            class="hover:text-orange-500 transition"
+                        >
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="menu.html"
+                            class="text-orange-500"
+                        >
+                            Menu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="about.html"
+                            class="hover:text-orange-500 transition"
+                        >
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="contact.html"
+                            class="hover:text-orange-500 transition"
+                        >
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Opening Hours -->
+
+            <div>
+
+                <h3 class="text-lg font-bold mb-6">
+                    Opening Hours
+                </h3>
+
+                <ul class="space-y-5 text-gray-400">
+
+                    <li>
+
+                        <span class="block mb-1">
+                            Monday - Friday
+                        </span>
+
+                        <span class="text-white font-medium">
+                            10:00 AM - 11:00 PM
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <span class="block mb-1">
+                            Saturday - Sunday
+                        </span>
+
+                        <span class="text-white font-medium">
+                            11:00 AM - 12:00 AM
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Contact -->
+
+            <div>
+
+                <h3 class="text-lg font-bold mb-6">
+                    Contact Us
+                </h3>
+
+                <ul class="space-y-5 text-gray-400">
+
+                    <li class="flex gap-3">
+
+                        <i
+                            class="fa-solid fa-location-dot
+                                   text-orange-500 mt-1"
+                        ></i>
+
+                        <span>
+                            123 Main Street, Downtown
+                        </span>
+
+                    </li>
+
+
+                    <li class="flex gap-3">
+
+                        <i
+                            class="fa-solid fa-phone
+                                   text-orange-500 mt-1"
+                        ></i>
+
+                        <span>
+                            +123 456 789
+                        </span>
+
+                    </li>
+
+
+                    <li class="flex gap-3">
+
+                        <i
+                            class="fa-solid fa-envelope
+                                   text-orange-500 mt-1"
+                        ></i>
+
+                        <span>
+                            hello@labella.com
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- Copyright -->
+
+        <div
+            class="border-t border-gray-800
+                   mt-14 pt-7
+                   text-center text-gray-500"
+        >
+
+            <p>
+                © 2026 La Bella Restaurant.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     CART OVERLAY
+========================================================= -->
+
+<div
+    id="cart-overlay"
+    class="cart-overlay fixed inset-0
+           bg-black/50 z-[60]"
+></div>
+
+
+<!-- =========================================================
+     CART PANEL
+========================================================= -->
+
+<aside
+    id="cart-panel"
+    class="cart-panel fixed top-0 right-0
+           w-full sm:w-[420px] h-full
+           bg-white z-[70] shadow-2xl"
+>
+
+    <div class="h-full flex flex-col">
+
+        <!-- Cart Header -->
+
+        <div
+            class="flex items-center justify-between
+                   px-6 py-5 border-b"
+        >
+
+            <div>
+
+                <h2 class="text-2xl font-bold">
+                    Your Cart
+                </h2>
+
+                <p
+                    id="cart-items-text"
+                    class="text-sm text-gray-500 mt-1"
+                >
+                    0 items
+                </p>
+
+            </div>
+
+
+            <button
+                id="close-cart"
+                type="button"
+                class="w-10 h-10 rounded-full
+                       bg-gray-100 hover:bg-orange-100
+                       text-gray-600 hover:text-orange-600"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <!-- Cart Items -->
+
+        <div
+            id="cart-items"
+            class="flex-1 overflow-y-auto p-6"
+        >
+
+            <div class="text-center py-20">
+
+                <i
+                    class="fa-solid fa-cart-shopping
+                           text-5xl text-gray-200"
+                ></i>
+
+                <h3 class="text-xl font-bold mt-4">
+                    Your cart is empty
+                </h3>
+
+                <p class="text-gray-500 mt-2">
+                    Add some delicious dishes!
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Cart Footer -->
+
+        <div class="border-t p-6">
+
+            <div
+                class="flex justify-between
+                       text-lg font-bold mb-4"
+            >
+
+                <span>Total</span>
+
+                <span
+                    id="cart-total"
+                    class="text-orange-600"
+                >
+                    $0
+                </span>
+
+            </div>
+
+
+            <a
+                href="contact.html"
+                class="w-full inline-flex
+                       items-center justify-center
+                       gap-2 bg-orange-600
+                       text-white py-3.5
+                       rounded-full font-semibold
+                       hover:bg-orange-700 transition"
+            >
+                <i class="fa-solid fa-credit-card"></i>
+                Proceed to Reservation
+            </a>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
+
+    const mobileMenuButton =
+        document.getElementById("mobile-menu-button");
+
+    const mobileMenu =
+        document.getElementById("mobile-menu");
+
+    mobileMenuButton.addEventListener("click", () => {
+
+        mobileMenu.classList.toggle("show");
+
+        const icon =
+            mobileMenuButton.querySelector("i");
+
+        if (mobileMenu.classList.contains("show")) {
+
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        }
+
+    });
+
+
+    /* ==========================================
+       SEARCH BOX
+    ========================================== */
+
+    const searchButton =
+        document.getElementById("search-button");
+
+    const searchBox =
+        document.getElementById("search-box");
+
+    const searchInput =
+        document.getElementById("search-input");
+
+    searchButton.addEventListener("click", () => {
+
+        searchBox.classList.toggle("show");
+
+        if (searchBox.classList.contains("show")) {
+            searchInput.focus();
+        }
+
+    });
+
+
+    /* ==========================================
+       CATEGORY FILTER
+    ========================================== */
+
+    const categoryButtons =
+        document.querySelectorAll(".category-btn");
+
+    const foodCards =
+        document.querySelectorAll(".food-card");
+
+    const noResults =
+        document.getElementById("no-results");
+
+
+    categoryButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            categoryButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            const category =
+                button.dataset.category;
+
+            let visibleCards = 0;
+
+            foodCards.forEach(card => {
+
+                const cardCategory =
+                    card.dataset.category;
+
+                if (
+                    category === "all" ||
+                    cardCategory === category
+                ) {
+
+                    card.style.display = "";
+
+                    visibleCards++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+            if (visibleCards === 0) {
+
+                noResults.classList.remove("hidden");
+
+            } else {
+
+                noResults.classList.add("hidden");
+
+            }
+
+        });
+
+    });
+
+
+    /* ==========================================
+       SEARCH
+    ========================================== */
+
+    searchInput.addEventListener("input", () => {
+
+        const searchValue =
+            searchInput.value.toLowerCase().trim();
+
+        let visibleCards = 0;
+
+        foodCards.forEach(card => {
+
+            const title =
+                card.querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+            const description =
+                card.querySelector("p")
+                    .textContent
+                    .toLowerCase();
+
+            if (
+                title.includes(searchValue) ||
+                description.includes(searchValue)
+            ) {
+
+                card.style.display = "";
+                visibleCards++;
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+        if (visibleCards === 0) {
+
+            noResults.classList.remove("hidden");
+
+        } else {
+
+            noResults.classList.add("hidden");
+
+        }
+
+    });
+
+
+    /* ==========================================
+       FAVORITES
+    ========================================== */
+
+    const favoriteButtons =
+        document.querySelectorAll(".favorite-btn");
+
+    favoriteButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            button.classList.toggle("active");
+
+            const icon =
+                button.querySelector("i");
+
+            if (button.classList.contains("active")) {
+
+                icon.classList.remove("fa-regular");
+                icon.classList.add("fa-solid");
+
+            } else {
+
+                icon.classList.remove("fa-solid");
+                icon.classList.add("fa-regular");
+
+            }
+
+        });
+
+    });
+
+
+    /* ==========================================
+       CART
+    ========================================== */
+
+    const cartButton =
+        document.getElementById("cart-button");
+
+    const cartPanel =
+        document.getElementById("cart-panel");
+
+    const cartOverlay =
+        document.getElementById("cart-overlay");
+
+    const closeCart =
+        document.getElementById("close-cart");
+
+    const cartCount =
+        document.getElementById("cart-count");
+
+    const cartItems =
+        document.getElementById("cart-items");
+
+    const cartTotal =
+        document.getElementById("cart-total");
+
+    const cartItemsText =
+        document.getElementById("cart-items-text");
+
+
+    let cart = [];
+
+
+    function openCart() {
+
+        cartPanel.classList.add("show");
+        cartOverlay.classList.add("show");
+
+    }
+
+
+    function closeCartPanel() {
+
+        cartPanel.classList.remove("show");
+        cartOverlay.classList.remove("show");
+
+    }
+
+
+    cartButton.addEventListener("click", openCart);
+
+    closeCart.addEventListener("click", closeCartPanel);
+
+    cartOverlay.addEventListener(
+        "click",
+        closeCartPanel
+    );
+
+
+    /* ==========================================
+       ADD TO CART
+    ========================================== */
+
+    const addButtons =
+        document.querySelectorAll(".add-to-cart");
+
+
+    addButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const card =
+                button.closest(".food-card");
+
+            const name =
+                card.querySelector("h3").textContent.trim();
+
+            const priceText =
+                card.querySelector("span.text-orange-600")
+                    .textContent
+                    .replace("$", "")
+                    .trim();
+
+            const price =
+                parseFloat(priceText);
+
+
+            const existingItem =
+                cart.find(item => item.name === name);
+
+
+            if (existingItem) {
+
+                existingItem.quantity++;
+
+            } else {
+
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+
+            }
+
+
+            updateCart();
+
+            openCart();
+
+        });
+
+    });
+
+
+    /* ==========================================
+       UPDATE CART
+    ========================================== */
+
+    function updateCart() {
+
+        const totalItems =
+            cart.reduce(
+                (sum, item) => sum + item.quantity,
+                0
+            );
+
+
+        const totalPrice =
+            cart.reduce(
+                (sum, item) =>
+                    sum + item.price * item.quantity,
+                0
+            );
+
+
+        cartCount.textContent =
+            totalItems;
+
+
+        cartItemsText.textContent =
+            `${totalItems} ${totalItems === 1 ? "item" : "items"}`;
+
+
+        cartTotal.textContent =
+            `$${totalPrice.toFixed(2)}`;
+
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML = `
+                <div class="text-center py-20">
+
+                    <i
+                        class="fa-solid fa-cart-shopping
+                               text-5xl text-gray-200"
+                    ></i>
+
+                    <h3 class="text-xl font-bold mt-4">
+                        Your cart is empty
+                    </h3>
+
+                    <p class="text-gray-500 mt-2">
+                        Add some delicious dishes!
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+
+        cartItems.innerHTML = "";
+
+
+        cart.forEach((item, index) => {
+
+            const itemElement =
+                document.createElement("div");
+
+            itemElement.className =
+                "flex items-center justify-between gap-4 " +
+                "py-4 border-b";
+
+
+            itemElement.innerHTML = `
+
+                <div class="flex-1">
+
+                    <h4 class="font-semibold">
+                        ${item.name}
+                    </h4>
+
+                    <p class="text-orange-600
+                              font-semibold text-sm mt-1">
+                        $${item.price.toFixed(2)}
+                    </p>
+
+                </div>
+
+
+                <div class="flex items-center gap-2">
+
+                    <button
+                        class="quantity-minus
+                               w-8 h-8 rounded-full
+                               bg-gray-100"
+                        data-index="${index}"
+                    >
+                        -
+                    </button>
+
+
+                    <span
+                        class="w-6 text-center
+                               font-semibold"
+                    >
+                        ${item.quantity}
+                    </span>
+
+
+                    <button
+                        class="quantity-plus
+                               w-8 h-8 rounded-full
+                               bg-orange-100
+                               text-orange-600"
+                        data-index="${index}"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            `;
+
+
+            cartItems.appendChild(itemElement);
+
+        });
+
+
+        /* Quantity Minus */
+
+        document
+            .querySelectorAll(".quantity-minus")
+            .forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const index =
+                        Number(button.dataset.index);
+
+                    cart[index].quantity--;
+
+                    if (cart[index].quantity <= 0) {
+                        cart.splice(index, 1);
+                    }
+
+                    updateCart();
+
+                });
+
+            });
+
+
+        /* Quantity Plus */
+
+        document
+            .querySelectorAll(".quantity-plus")
+            .forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const index =
+                        Number(button.dataset.index);
+
+                    cart[index].quantity++;
+
+                    updateCart();
+
+                });
+
+            });
+
+    }
+
+</script>
+
+</body>
+
+</html>

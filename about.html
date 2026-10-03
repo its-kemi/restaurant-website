@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | La Bella Restaurant</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.78),
+                rgba(0, 0, 0, 0.45),
+                rgba(0, 0, 0, 0.25)
+            );
+        }
+    </style>
+</head>
+
+
+<body class="bg-orange-50 text-gray-800">
+
+
+    <!-- =====================================================
+                         NAVBAR
+    ====================================================== -->
+
+    <header class="bg-white/95 backdrop-blur-md shadow-md sticky top-0 z-50">
+
+        <nav class="max-w-7xl mx-auto px-6 py-4
+                    flex items-center justify-between">
+
+            <!-- Logo -->
+
+            <a href="index.html"
+               class="flex items-center gap-3
+                      text-2xl font-bold text-orange-600
+                      hover:text-orange-700 transition">
+
+                <span class="w-10 h-10 rounded-full
+                             bg-orange-100
+                             flex items-center justify-center">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                </span>
+
+                <span>La Bella</span>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <ul class="hidden md:flex items-center gap-8">
+
+                <li>
+                    <a href="index.html"
+                       class="flex items-center gap-2
+                              text-gray-700 font-medium
+                              hover:text-orange-600 transition">
+
+                        <i class="fa-solid fa-house"></i>
+                        Home
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="menu.html"
+                       class="flex items-center gap-2
+                              text-gray-700 font-medium
+                              hover:text-orange-600 transition">
+
+                        <i class="fa-solid fa-bowl-food"></i>
+                        Menu
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="about.html"
+                       class="flex items-center gap-2
+                              text-orange-600 font-bold">
+
+                        <i class="fa-solid fa-circle-info"></i>
+                        About
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="contact.html"
+                       class="flex items-center gap-2
+                              text-gray-700 font-medium
+                              hover:text-orange-600 transition">
+
+                        <i class="fa-solid fa-phone"></i>
+                        Contact
+
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- Actions -->
+
+            <div class="flex items-center gap-3">
+
+                <!-- Search -->
+
+                <button
+                    type="button"
+                    id="search-button"
+                    aria-label="Search"
+                    class="w-10 h-10 rounded-full
+                           bg-orange-50 text-orange-600
+                           hover:bg-orange-600 hover:text-white
+                           transition">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+
+                <!-- Cart -->
+
+                <button
+                    type="button"
+                    id="cart-button"
+                    aria-label="Shopping cart"
+                    class="relative w-10 h-10 rounded-full
+                           bg-orange-50 text-orange-600
+                           hover:bg-orange-600 hover:text-white
+                           transition">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span
+                        id="cart-count"
+                        class="absolute -top-1 -right-1
+                               w-5 h-5 rounded-full
+                               bg-orange-600 text-white
+                               text-xs font-bold
+                               flex items-center justify-center">
+
+                        0
+
+                    </span>
+
+                </button>
+
+
+                <!-- Book Table -->
+
+                <a href="contact.html"
+                   class="hidden sm:flex items-center gap-2
+                          bg-orange-600 text-white
+                          px-5 py-2.5 rounded-full
+                          font-semibold
+                          hover:bg-orange-700
+                          transition">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    Book a Table
+
+                </a>
+
+
+                <!-- Mobile Menu -->
+
+                <button
+                    type="button"
+                    id="mobile-menu-button"
+                    aria-label="Open menu"
+                    class="md:hidden w-10 h-10
+                           rounded-full bg-orange-50
+                           text-orange-600
+                           hover:bg-orange-600
+                           hover:text-white transition">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+
+        <!-- Mobile Navigation -->
+
+        <div id="mobile-menu"
+             class="hidden md:hidden border-t bg-white">
+
+            <div class="px-6 py-5 space-y-3">
+
+                <a href="index.html"
+                   class="block px-4 py-3 rounded-xl
+                          hover:bg-orange-50
+                          hover:text-orange-600 transition">
+
+                    <i class="fa-solid fa-house mr-2"></i>
+                    Home
+
+                </a>
+
+
+                <a href="menu.html"
+                   class="block px-4 py-3 rounded-xl
+                          hover:bg-orange-50
+                          hover:text-orange-600 transition">
+
+                    <i class="fa-solid fa-bowl-food mr-2"></i>
+                    Menu
+
+                </a>
+
+
+                <a href="about.html"
+                   class="block px-4 py-3 rounded-xl
+                          bg-orange-50
+                          text-orange-600 font-semibold">
+
+                    <i class="fa-solid fa-circle-info mr-2"></i>
+                    About
+
+                </a>
+
+
+                <a href="contact.html"
+                   class="block px-4 py-3 rounded-xl
+                          hover:bg-orange-50
+                          hover:text-orange-600 transition">
+
+                    <i class="fa-solid fa-phone mr-2"></i>
+                    Contact
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+                         HERO SECTION
+    ====================================================== -->
+
+    <section
+        class="relative min-h-[560px]
+               flex items-center
+               bg-cover bg-center"
+        style="background-image: url('images/restaurant.jpg');">
+
+
+        <!-- Overlay -->
+
+        <div class="absolute inset-0 hero-overlay"></div>
+
+
+        <!-- Content -->
+
+        <div class="relative z-10
+                    max-w-7xl mx-auto
+                    px-6 py-24 w-full">
+
+            <div class="max-w-3xl">
+
+                <div class="flex items-center gap-3 mb-5">
+
+                    <span class="w-12 h-[2px] bg-orange-500"></span>
+
+                    <p class="uppercase tracking-[0.3em]
+                              font-bold text-orange-400 text-sm">
+
+                        About La Bella
+
+                    </p>
+
+                </div>
+
+
+                <h1 class="text-5xl md:text-7xl
+                           font-extrabold text-white
+                           leading-tight">
+
+                    Our Story,
+                    <span class="text-orange-400">
+                        Our Passion
+                    </span>
+
+                </h1>
+
+
+                <p class="max-w-2xl
+                          text-gray-200
+                          mt-6 text-lg md:text-xl
+                          leading-relaxed">
+
+                    Discover the story behind La Bella Restaurant,
+                    where fresh ingredients, creativity and passion
+                    come together to create unforgettable dining
+                    experiences.
+
+                </p>
+
+
+                <div class="flex flex-wrap gap-4 mt-8">
+
+                    <a href="#our-story"
+                       class="inline-flex items-center gap-3
+                              bg-orange-600 text-white
+                              px-7 py-3.5 rounded-full
+                              font-bold
+                              hover:bg-orange-700
+                              transition">
+
+                        Discover Our Story
+
+                        <i class="fa-solid fa-arrow-down"></i>
+
+                    </a>
+
+
+                    <a href="menu.html"
+                       class="inline-flex items-center gap-3
+                              border border-white/60
+                              text-white
+                              px-7 py-3.5 rounded-full
+                              font-bold
+                              hover:bg-white
+                              hover:text-gray-900
+                              transition">
+
+                        View Our Menu
+
+                        <i class="fa-solid fa-bowl-food"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+                         OUR STORY
+    ====================================================== -->
+
+    <main>
+
+        <section id="our-story"
+                 class="py-24 bg-white">
+
+            <div class="max-w-7xl mx-auto px-6">
+
+                <div class="grid grid-cols-1
+                            lg:grid-cols-2
+                            gap-16 items-center">
+
+
+                    <!-- Images -->
+
+                    <div class="relative">
+
+                        <div class="grid grid-cols-2 gap-4">
+
+                            <img
+                                src="images/chef1.jpg"
+                                alt="La Bella Chef preparing food"
+                                class="w-full h-72
+                                       object-cover
+                                       rounded-3xl
+                                       shadow-lg">
+
+
+                            <img
+                                src="images/food.jpg"
+                                alt="Delicious La Bella food"
+                                class="w-full h-72
+                                       object-cover
+                                       rounded-3xl
+                                       mt-10
+                                       shadow-lg">
+
+                        </div>
+
+
+                        <!-- Experience Badge -->
+
+                        <div
+                            class="absolute
+                                   left-1/2
+                                   -translate-x-1/2
+                                   -bottom-10
+                                   bg-orange-600
+                                   text-white
+                                   px-7 py-5
+                                   rounded-2xl
+                                   shadow-2xl
+                                   min-w-[210px]">
+
+                            <div class="flex items-center
+                                        justify-center gap-4">
+
+                                <i class="fa-solid fa-award
+                                          text-4xl"></i>
+
+                                <div>
+
+                                    <p class="text-3xl
+                                              font-extrabold">
+
+                                        10+
+
+                                    </p>
+
+                                    <p class="text-sm
+                                              text-orange-100">
+
+                                        Years of Excellence
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Story Content -->
+
+                    <div class="pt-8 lg:pt-0">
+
+                        <p class="text-orange-600
+                                  font-bold uppercase
+                                  tracking-[0.2em] text-sm">
+
+                            Our Story
+
+                        </p>
+
+
+                        <h2 class="text-4xl md:text-5xl
+                                   font-extrabold
+                                   text-gray-900
+                                   mt-3 leading-tight">
+
+                            Food Made With
+                            <span class="text-orange-600">
+                                Love
+                            </span>
+
+                        </h2>
+
+
+                        <p class="text-gray-600
+                                  leading-relaxed
+                                  mt-7 text-lg">
+
+                            La Bella Restaurant was created with
+                            one simple idea: great food has the
+                            power to bring people together.
+
+                        </p>
+
+
+                        <p class="text-gray-600
+                                  leading-relaxed mt-4">
+
+                            Our talented team prepares every dish
+                            with carefully selected ingredients,
+                            traditional techniques and creative
+                            ideas.
+
+                        </p>
+
+
+                        <p class="text-gray-600
+                                  leading-relaxed mt-4">
+
+                            Whether you are enjoying a quick lunch
+                            with friends or celebrating a special
+                            family dinner, we want every visit to
+                            La Bella to become a beautiful memory.
+
+                        </p>
+
+
+                        <!-- Features -->
+
+                        <div class="grid grid-cols-1
+                                    sm:grid-cols-2
+                                    gap-5 mt-8">
+
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="w-11 h-11
+                                            shrink-0
+                                            rounded-full
+                                            bg-orange-100
+                                            text-orange-600
+                                            flex items-center
+                                            justify-center">
+
+                                    <i class="fa-solid fa-check"></i>
+
+                                </div>
+
+                                <span class="font-semibold">
+                                    Fresh Ingredients
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="w-11 h-11
+                                            shrink-0
+                                            rounded-full
+                                            bg-orange-100
+                                            text-orange-600
+                                            flex items-center
+                                            justify-center">
+
+                                    <i class="fa-solid fa-check"></i>
+
+                                </div>
+
+                                <span class="font-semibold">
+                                    Expert Chefs
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="w-11 h-11
+                                            shrink-0
+                                            rounded-full
+                                            bg-orange-100
+                                            text-orange-600
+                                            flex items-center
+                                            justify-center">
+
+                                    <i class="fa-solid fa-check"></i>
+
+                                </div>
+
+                                <span class="font-semibold">
+                                    Quality Food
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="w-11 h-11
+                                            shrink-0
+                                            rounded-full
+                                            bg-orange-100
+                                            text-orange-600
+                                            flex items-center
+                                            justify-center">
+
+                                    <i class="fa-solid fa-check"></i>
+
+                                </div>
+
+                                <span class="font-semibold">
+                                    Friendly Service
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <a href="contact.html"
+                           class="inline-flex items-center
+                                  gap-3 mt-8
+                                  bg-gray-900 text-white
+                                  px-7 py-3.5
+                                  rounded-full
+                                  font-bold
+                                  hover:bg-orange-600
+                                  transition">
+
+                            Visit Us
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+                             VALUES
+        ====================================================== -->
+
+        <section class="py-24 bg-orange-50">
+
+            <div class="max-w-7xl mx-auto px-6">
+
+
+                <div class="text-center max-w-2xl
+                            mx-auto mb-14">
+
+                    <p class="text-orange-600
+                              font-bold uppercase
+                              tracking-[0.2em] text-sm">
+
+                        Our Values
+
+                    </p>
+
+
+                    <h2 class="text-4xl md:text-5xl
+                               font-extrabold
+                               text-gray-900 mt-3">
+
+                        What We
+                        <span class="text-orange-600">
+                            Believe In
+                        </span>
+
+                    </h2>
+
+
+                    <p class="text-gray-500
+                              mt-5 leading-relaxed">
+
+                        Our values guide everything we do,
+                        from choosing ingredients to welcoming
+                        every guest.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="grid grid-cols-1
+                            md:grid-cols-3 gap-8">
+
+
+                    <!-- Value 1 -->
+
+                    <div class="group bg-white
+                                p-9 rounded-3xl
+                                text-center
+                                shadow-sm
+                                hover:shadow-2xl
+                                hover:-translate-y-2
+                                transition duration-300">
+
+                        <div class="w-16 h-16 mx-auto
+                                    rounded-2xl
+                                    bg-orange-100
+                                    text-orange-600
+                                    flex items-center
+                                    justify-center
+                                    text-2xl
+                                    group-hover:bg-orange-600
+                                    group-hover:text-white
+                                    transition">
+
+                            <i class="fa-solid fa-heart"></i>
+
+                        </div>
+
+
+                        <h3 class="text-2xl font-bold
+                                   text-gray-900 mt-6">
+
+                            Passion
+
+                        </h3>
+
+
+                        <p class="text-gray-500
+                                  leading-relaxed mt-3">
+
+                            We put passion into every dish
+                            and every experience we create.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Value 2 -->
+
+                    <div class="group bg-white
+                                p-9 rounded-3xl
+                                text-center
+                                shadow-sm
+                                hover:shadow-2xl
+                                hover:-translate-y-2
+                                transition duration-300">
+
+                        <div class="w-16 h-16 mx-auto
+                                    rounded-2xl
+                                    bg-orange-100
+                                    text-orange-600
+                                    flex items-center
+                                    justify-center
+                                    text-2xl
+                                    group-hover:bg-orange-600
+                                    group-hover:text-white
+                                    transition">
+
+                            <i class="fa-solid fa-leaf"></i>
+
+                        </div>
+
+
+                        <h3 class="text-2xl font-bold
+                                   text-gray-900 mt-6">
+
+                            Freshness
+
+                        </h3>
+
+
+                        <p class="text-gray-500
+                                  leading-relaxed mt-3">
+
+                            We carefully choose fresh and
+                            high-quality ingredients every day.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Value 3 -->
+
+                    <div class="group bg-white
+                                p-9 rounded-3xl
+                                text-center
+                                shadow-sm
+                                hover:shadow-2xl
+                                hover:-translate-y-2
+                                transition duration-300">
+
+                        <div class="w-16 h-16 mx-auto
+                                    rounded-2xl
+                                    bg-orange-100
+                                    text-orange-600
+                                    flex items-center
+                                    justify-center
+                                    text-2xl
+                                    group-hover:bg-orange-600
+                                    group-hover:text-white
+                                    transition">
+
+                            <i class="fa-solid fa-star"></i>
+
+                        </div>
+
+
+                        <h3 class="text-2xl font-bold
+                                   text-gray-900 mt-6">
+
+                            Quality
+
+                        </h3>
+
+
+                        <p class="text-gray-500
+                                  leading-relaxed mt-3">
+
+                            Quality and customer satisfaction
+                            are always our top priorities.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+                              STATS
+        ====================================================== -->
+
+        <section class="py-20 bg-white">
+
+            <div class="max-w-7xl mx-auto px-6">
+
+                <div class="grid grid-cols-2
+                            md:grid-cols-4
+                            divide-x divide-gray-200">
+
+
+                    <div class="text-center p-6">
+
+                        <i class="fa-solid fa-calendar-days
+                                  text-orange-600 text-3xl"></i>
+
+                        <p class="text-4xl font-extrabold
+                                  text-gray-900 mt-4">
+
+                            10+
+
+                        </p>
+
+                        <p class="text-gray-500 mt-1">
+                            Years Experience
+                        </p>
+
+                    </div>
+
+
+                    <div class="text-center p-6">
+
+                        <i class="fa-solid fa-utensils
+                                  text-orange-600 text-3xl"></i>
+
+                        <p class="text-4xl font-extrabold
+                                  text-gray-900 mt-4">
+
+                            50+
+
+                        </p>
+
+                        <p class="text-gray-500 mt-1">
+                            Delicious Dishes
+                        </p>
+
+                    </div>
+
+
+                    <div class="text-center p-6">
+
+                        <i class="fa-solid fa-users
+                                  text-orange-600 text-3xl"></i>
+
+                        <p class="text-4xl font-extrabold
+                                  text-gray-900 mt-4">
+
+                            5K+
+
+                        </p>
+
+                        <p class="text-gray-500 mt-1">
+                            Happy Customers
+                        </p>
+
+                    </div>
+
+
+                    <div class="text-center p-6">
+
+                        <i class="fa-solid fa-award
+                                  text-orange-600 text-3xl"></i>
+
+                        <p class="text-4xl font-extrabold
+                                  text-gray-900 mt-4">
+
+                            15+
+
+                        </p>
+
+                        <p class="text-gray-500 mt-1">
+                            Awards
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+                              CHEFS
+        ====================================================== -->
+
+        <section class="py-24 bg-orange-50">
+
+            <div class="max-w-7xl mx-auto px-6">
+
+
+                <div class="text-center max-w-2xl
+                            mx-auto mb-14">
+
+                    <p class="text-orange-600
+                              font-bold uppercase
+                              tracking-[0.2em] text-sm">
+
+                        Our Team
+
+                    </p>
+
+
+                    <h2 class="text-4xl md:text-5xl
+                               font-extrabold
+                               text-gray-900 mt-3">
+
+                        Meet Our
+                        <span class="text-orange-600">
+                            Chefs
+                        </span>
+
+                    </h2>
+
+
+                    <p class="text-gray-500
+                              mt-5">
+
+                        Meet the talented people behind
+                        our delicious food.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="grid grid-cols-1
+                            md:grid-cols-3 gap-8">
+
+
+                    <!-- Chef 1 -->
+
+                    <article class="group bg-white
+                                    rounded-3xl
+                                    overflow-hidden
+                                    shadow-md
+                                    hover:shadow-2xl
+                                    transition duration-300">
+
+                        <div class="relative overflow-hidden">
+
+                            <img
+                                src="images/chef1.jpg"
+                                alt="Michael Brown, Executive Chef"
+                                class="w-full h-80
+                                       object-cover
+                                       group-hover:scale-105
+                                       transition duration-500">
+
+
+                            <div class="absolute inset-x-0
+                                        bottom-0
+                                        bg-gradient-to-t
+                                        from-black/70
+                                        to-transparent
+                                        p-6
+                                        opacity-0
+                                        group-hover:opacity-100
+                                        transition">
+
+                                <div class="flex justify-center gap-3">
+
+                                    <a href="#"
+                                       aria-label="Facebook"
+                                       class="w-10 h-10
+                                              rounded-full
+                                              bg-white
+                                              text-gray-800
+                                              flex items-center
+                                              justify-center
+                                              hover:bg-orange-600
+                                              hover:text-white">
+
+                                        <i class="fa-brands fa-facebook-f"></i>
+
+                                    </a>
+
+
+                                    <a href="#"
+                                       aria-label="Instagram"
+                                       class="w-10 h-10
+                                              rounded-full
+                                              bg-white
+                                              text-gray-800
+                                              flex items-center
+                                              justify-center
+                                              hover:bg-orange-600
+                                              hover:text-white">
+
+                                        <i class="fa-brands fa-instagram"></i>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="text-center p-7">
+
+                            <h3 class="text-2xl font-bold">
+                                Michael Brown
+                            </h3>
+
+                            <p class="text-orange-600
+                                      font-semibold mt-1">
+
+                                Executive Chef
+
+                            </p>
+
+                            <p class="text-gray-500
+                                      text-sm
+                                      leading-relaxed mt-3">
+
+                                Specialist in international
+                                cuisine and creative dishes.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Chef 2 -->
+
+                    <article class="group bg-white
+                                    rounded-3xl
+                                    overflow-hidden
+                                    shadow-md
+                                    hover:shadow-2xl
+                                    transition duration-300">
+
+                        <div class="relative overflow-hidden">
+
+                            <img
+                                src="images/chef2.jpg"
+                                alt="Sophia Wilson, Pastry Chef"
+                                class="w-full h-80
+                                       object-cover
+                                       group-hover:scale-105
+                                       transition duration-500">
+
+
+                            <div class="absolute inset-x-0
+                                        bottom-0
+                                        bg-gradient-to-t
+                                        from-black/70
+                                        to-transparent
+                                        p-6
+                                        opacity-0
+                                        group-hover:opacity-100
+                                        transition">
+
+                                <div class="flex justify-center gap-3">
+
+                                    <a href="#"
+                                       aria-label="Facebook"
+                                       class="w-10 h-10
+                                              rounded-full
+                                              bg-white
+                                              text-gray-800
+                                              flex items-center
+                                              justify-center
+                                              hover:bg-orange-600
+                                              hover:text-white">
+
+                                        <i class="fa-brands fa-facebook-f"></i>
+
+                                    </a>
+
+
+                                    <a href="#"
+                                       aria-label="Instagram"
+                                       class="w-10 h-10
+                                              rounded-full
+                                              bg-white
+                                              text-gray-800
+                                              flex items-center
+                                              justify-center
+                                              hover:bg-orange-600
+                                              hover:text-white">
+
+                                        <i class="fa-brands fa-instagram"></i>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="text-center p-7">
+
+                            <h3 class="text-2xl font-bold">
+                                Sophia Wilson
+                            </h3>
+
+                            <p class="text-orange-600
+                                      font-semibold mt-1">
+
+                                Pastry Chef
+
+                            </p>
+
+                            <p class="text-gray-500
+                                      text-sm
+                                      leading-relaxed mt-3">
+
+                                Expert in desserts,
+                                cakes and pastries.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Chef 3 -->
+
+                    <article class="group bg-white
+                                    rounded-3xl
+                                    overflow-hidden
+                                    shadow-md
+                                    hover:shadow-2xl
+                                    transition duration-300">
+
+                        <div class="relative overflow-hidden">
+
+                            <img
+                                src="images/chef3.jpg"
+                                alt="Daniel Smith, Sous Chef"
+                                class="w-full h-80
+                                       object-cover
+                                       group-hover:scale-105
+                                       transition duration-500">
+
+
+                            <div class="absolute inset-x-0
+                                        bottom-0
+                                        bg-gradient-to-t
+                                        from-black/70
+                                        to-transparent
+                                        p-6
+                                        opacity-0
+                                        group-hover:opacity-100
+                                        transition">
+
+                                <div class="flex justify-center gap-3">
+
+                                    <a href="#"
+                                       aria-label="Facebook"
+                                       class="w-10 h-10
+                                              rounded-full
+                                              bg-white
+                                              text-gray-800
+                                              flex items-center
+                                              justify-center
+                                              hover:bg-orange-600
+                                              hover:text-white">
+
+                                        <i class="fa-brands fa-facebook-f"></i>
+
+                                    </a>
+
+
+                                    <a href="#"
+                                       aria-label="Instagram"
+                                       class="w-10 h-10
+                                              rounded-full
+                                              bg-white
+                                              text-gray-800
+                                              flex items-center
+                                              justify-center
+                                              hover:bg-orange-600
+                                              hover:text-white">
+
+                                        <i class="fa-brands fa-instagram"></i>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="text-center p-7">
+
+                            <h3 class="text-2xl font-bold">
+                                Daniel Smith
+                            </h3>
+
+                            <p class="text-orange-600
+                                      font-semibold mt-1">
+
+                                Sous Chef
+
+                            </p>
+
+                            <p class="text-gray-500
+                                      text-sm
+                                      leading-relaxed mt-3">
+
+                                Passionate about traditional
+                                recipes and modern flavors.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+                              CTA
+        ====================================================== -->
+
+        <section class="py-24 bg-white">
+
+            <div class="max-w-5xl mx-auto px-6">
+
+                <div class="relative overflow-hidden
+                            bg-gray-900
+                            rounded-[2rem]
+                            text-white
+                            text-center
+                            px-6 py-16">
+
+
+                    <!-- Decorative circles -->
+
+                    <div class="absolute
+                                -top-20 -right-20
+                                w-64 h-64
+                                rounded-full
+                                bg-orange-600/20">
+                    </div>
+
+                    <div class="absolute
+                                -bottom-24 -left-20
+                                w-64 h-64
+                                rounded-full
+                                bg-orange-600/20">
+                    </div>
+
+
+                    <div class="relative z-10">
+
+                        <div class="w-16 h-16
+                                    mx-auto
+                                    rounded-2xl
+                                    bg-orange-600
+                                    flex items-center
+                                    justify-center
+                                    text-2xl">
+
+                            <i class="fa-solid fa-utensils"></i>
+
+                        </div>
+
+
+                        <h2 class="text-3xl md:text-5xl
+                                   font-extrabold mt-6">
+
+                            Come and Taste
+                            <span class="text-orange-500">
+                                the Difference
+                            </span>
+
+                        </h2>
+
+
+                        <p class="text-gray-300
+                                  mt-5
+                                  max-w-2xl
+                                  mx-auto
+                                  leading-relaxed">
+
+                            We are ready to welcome you,
+                            serve delicious food and make
+                            your visit truly special.
+
+                        </p>
+
+
+                        <div class="flex flex-wrap
+                                    justify-center
+                                    gap-4 mt-8">
+
+
+                            <a href="menu.html"
+                               class="inline-flex
+                                      items-center gap-3
+                                      bg-white
+                                      text-gray-900
+                                      px-7 py-3.5
+                                      rounded-full
+                                      font-bold
+                                      hover:bg-orange-50
+                                      transition">
+
+                                <i class="fa-solid fa-bowl-food"></i>
+
+                                View Menu
+
+                            </a>
+
+
+                            <a href="contact.html"
+                               class="inline-flex
+                                      items-center gap-3
+                                      bg-orange-600
+                                      text-white
+                                      px-7 py-3.5
+                                      rounded-full
+                                      font-bold
+                                      hover:bg-orange-700
+                                      transition">
+
+                                <i class="fa-solid fa-calendar-check"></i>
+
+                                Book a Table
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+                            FOOTER
+    ====================================================== -->
+
+    <footer class="bg-gray-950 text-white">
+
+        <div class="max-w-7xl mx-auto px-6 py-16">
+
+            <div class="grid grid-cols-1
+                        sm:grid-cols-2
+                        lg:grid-cols-4 gap-12">
+
+
+                <!-- About -->
+
+                <div>
+
+                    <a href="index.html"
+                       class="flex items-center gap-3
+                              text-2xl font-bold
+                              text-orange-500">
+
+                        <span class="w-10 h-10
+                                     rounded-full
+                                     bg-orange-500/10
+                                     flex items-center
+                                     justify-center">
+
+                            <i class="fa-solid fa-utensils"></i>
+
+                        </span>
+
+                        La Bella
+
+                    </a>
+
+
+                    <p class="text-gray-400
+                              leading-relaxed mt-5">
+
+                        Delicious food, fresh ingredients
+                        and beautiful moments.
+
+                    </p>
+
+
+                    <div class="flex gap-3 mt-6">
+
+                        <a href="#"
+                           aria-label="Facebook"
+                           class="w-10 h-10
+                                  rounded-full
+                                  bg-gray-800
+                                  flex items-center
+                                  justify-center
+                                  hover:bg-orange-600
+                                  transition">
+
+                            <i class="fa-brands fa-facebook-f"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                           aria-label="Instagram"
+                           class="w-10 h-10
+                                  rounded-full
+                                  bg-gray-800
+                                  flex items-center
+                                  justify-center
+                                  hover:bg-orange-600
+                                  transition">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                           aria-label="LinkedIn"
+                           class="w-10 h-10
+                                  rounded-full
+                                  bg-gray-800
+                                  flex items-center
+                                  justify-center
+                                  hover:bg-orange-600
+                                  transition">
+
+                            <i class="fa-brands fa-linkedin-in"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Quick Links -->
+
+                <div>
+
+                    <h3 class="text-lg font-bold mb-6">
+                        Quick Links
+                    </h3>
+
+
+                    <ul class="space-y-4 text-gray-400">
+
+                        <li>
+                            <a href="index.html"
+                               class="hover:text-orange-500 transition">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="menu.html"
+                               class="hover:text-orange-500 transition">
+                                Menu
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="about.html"
+                               class="text-orange-500 font-semibold">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html"
+                               class="hover:text-orange-500 transition">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Opening Hours -->
+
+                <div>
+
+                    <h3 class="text-lg font-bold mb-6">
+                        Opening Hours
+                    </h3>
+
+
+                    <ul class="space-y-5 text-gray-400">
+
+                        <li>
+
+                            <span class="block">
+                                Monday - Friday
+                            </span>
+
+                            <span class="text-white font-medium">
+                                10:00 AM - 11:00 PM
+                            </span>
+
+                        </li>
+
+
+                        <li>
+
+                            <span class="block">
+                                Saturday - Sunday
+                            </span>
+
+                            <span class="text-white font-medium">
+                                11:00 AM - 12:00 AM
+                            </span>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Contact -->
+
+                <div>
+
+                    <h3 class="text-lg font-bold mb-6">
+                        Contact Us
+                    </h3>
+
+
+                    <ul class="space-y-5 text-gray-400">
+
+                        <li class="flex gap-3">
+
+                            <i class="fa-solid fa-location-dot
+                                      text-orange-500 mt-1"></i>
+
+                            <span>
+                                123 Main Street,
+                                Downtown
+                            </span>
+
+                        </li>
+
+
+                        <li class="flex gap-3">
+
+                            <i class="fa-solid fa-phone
+                                      text-orange-500 mt-1"></i>
+
+                            <a href="tel:+123456789"
+                               class="hover:text-orange-500">
+                                +123 456 789
+                            </a>
+
+                        </li>
+
+
+                        <li class="flex gap-3">
+
+                            <i class="fa-solid fa-envelope
+                                      text-orange-500 mt-1"></i>
+
+                            <a href="mailto:hello@labella.com"
+                               class="hover:text-orange-500">
+                                hello@labella.com
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Copyright -->
+
+            <div class="border-t
+                        border-gray-800
+                        mt-14 pt-7
+                        text-center
+                        text-gray-500">
+
+                <p>
+                    © 2026 La Bella Restaurant.
+                    All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+                         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+    <!-- Mobile Menu Script -->
+
+    <script>
+
+        const mobileMenuButton =
+            document.getElementById("mobile-menu-button");
+
+        const mobileMenu =
+            document.getElementById("mobile-menu");
+
+
+        if (mobileMenuButton && mobileMenu) {
+
+            mobileMenuButton.addEventListener("click", () => {
+
+                mobileMenu.classList.toggle("hidden");
+
+                const icon =
+                    mobileMenuButton.querySelector("i");
+
+                if (mobileMenu.classList.contains("hidden")) {
+
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+
+                } else {
+
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-xmark");
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

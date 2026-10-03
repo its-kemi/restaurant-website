@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | La Bella Restaurant</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body class="bg-orange-50">
+
+    <!-- ==================== NAVBAR ==================== -->
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="index.html"
+               class="flex items-center gap-3 text-2xl font-bold text-orange-600">
+
+                <i class="fa-solid fa-utensils"></i>
+
+                <span>La Bella</span>
+
+            </a>
+
+
+            <!-- Navigation -->
+            <ul class="hidden md:flex items-center gap-8">
+
+                <li>
+                    <a href="index.html"
+                       class="flex items-center gap-2 text-gray-700 font-medium
+                              hover:text-orange-600 transition">
+
+                        <i class="fa-solid fa-house"></i>
+                        Home
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="menu.html"
+                       class="flex items-center gap-2 text-gray-700 font-medium
+                              hover:text-orange-600 transition">
+
+                        <i class="fa-solid fa-bowl-food"></i>
+                        Menu
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="about.html"
+                       class="flex items-center gap-2 text-gray-700 font-medium
+                              hover:text-orange-600 transition">
+
+                        <i class="fa-solid fa-circle-info"></i>
+                        About
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="contact.html"
+                       class="flex items-center gap-2 text-orange-600 font-semibold
+                              hover:text-orange-800 transition">
+
+                        <i class="fa-solid fa-phone"></i>
+                        Contact
+
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- Book Button -->
+            <a href="#reservation"
+               class="hidden sm:flex items-center gap-2
+                      bg-orange-600 text-white
+                      px-5 py-2.5 rounded-full
+                      font-semibold
+                      hover:bg-orange-700 transition">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                Book a Table
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ==================== PAGE HERO ==================== -->
+
+    <section class="relative py-24 bg-gray-900 overflow-hidden">
+
+        <!-- Background Image -->
+        <img
+            src="images/restaurant.jpg"
+            alt="La Bella Restaurant"
+            class="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
+
+            <div class="flex items-center justify-center gap-2
+                        text-orange-400 font-semibold mb-4">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <span>Get In Touch</span>
+
+            </div>
+
+
+            <h1 class="text-5xl md:text-6xl font-bold">
+
+                Contact
+
+                <span class="text-orange-500">
+                    Us
+                </span>
+
+            </h1>
+
+
+            <p class="max-w-2xl mx-auto mt-5 text-gray-200 text-lg">
+
+                Have a question, want to reserve a table,
+                or simply want to say hello? We would love
+                to hear from you.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+
+    <section class="py-20 bg-orange-50">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+
+                <!-- ==================== CONTACT INFO ==================== -->
+
+                <div>
+
+                    <p class="text-orange-600 font-bold uppercase
+                              tracking-widest text-sm">
+
+                        Contact Information
+
+                    </p>
+
+
+                    <h2 class="text-4xl md:text-5xl font-bold
+                               text-gray-900 mt-3">
+
+                        Let's Make Your
+
+                        <span class="text-orange-600">
+                            Visit Special
+                        </span>
+
+                    </h2>
+
+
+                    <p class="text-gray-600 leading-relaxed
+                              mt-5 max-w-xl">
+
+                        We are always happy to help. Contact our team
+                        for reservations, questions, or any information
+                        about La Bella Restaurant.
+
+                    </p>
+
+
+
+                    <!-- ==================== CONTACT CARDS ==================== -->
+
+                    <div class="space-y-5 mt-8">
+
+
+                        <!-- Location -->
+
+                        <div class="flex items-center gap-5
+                                    bg-white p-5 rounded-2xl
+                                    shadow-sm hover:shadow-lg
+                                    transition">
+
+                            <div class="w-14 h-14 rounded-full
+                                        bg-orange-100 text-orange-600
+                                        flex items-center justify-center
+                                        text-xl">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3 class="font-bold text-gray-900 text-lg">
+                                    Our Location
+                                </h3>
+
+                                <p class="text-gray-500 mt-1">
+                                    123 Main Street, Downtown
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Phone -->
+
+                        <div class="flex items-center gap-5
+                                    bg-white p-5 rounded-2xl
+                                    shadow-sm hover:shadow-lg
+                                    transition">
+
+                            <div class="w-14 h-14 rounded-full
+                                        bg-orange-100 text-orange-600
+                                        flex items-center justify-center
+                                        text-xl">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3 class="font-bold text-gray-900 text-lg">
+                                    Phone Number
+                                </h3>
+
+                                <p class="text-gray-500 mt-1">
+                                    +123 456 789
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Email -->
+
+                        <div class="flex items-center gap-5
+                                    bg-white p-5 rounded-2xl
+                                    shadow-sm hover:shadow-lg
+                                    transition">
+
+                            <div class="w-14 h-14 rounded-full
+                                        bg-orange-100 text-orange-600
+                                        flex items-center justify-center
+                                        text-xl">
+
+                                <i class="fa-solid fa-envelope"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3 class="font-bold text-gray-900 text-lg">
+                                    Email Address
+                                </h3>
+
+                                <p class="text-gray-500 mt-1">
+                                    hello@labella.com
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Opening Hours -->
+
+                        <div class="flex items-center gap-5
+                                    bg-white p-5 rounded-2xl
+                                    shadow-sm hover:shadow-lg
+                                    transition">
+
+                            <div class="w-14 h-14 rounded-full
+                                        bg-orange-100 text-orange-600
+                                        flex items-center justify-center
+                                        text-xl">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3 class="font-bold text-gray-900 text-lg">
+                                    Opening Hours
+                                </h3>
+
+                                <p class="text-gray-500 mt-1">
+                                    Monday - Sunday: 10 AM - 11 PM
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================== RESERVATION FORM ==================== -->
+
+                <div
+                    id="reservation"
+                    class="bg-white p-8 md:p-10 rounded-3xl shadow-xl"
+                >
+
+                    <!-- Form Header -->
+
+                    <div class="flex items-center gap-4 mb-8">
+
+                        <div class="w-14 h-14 rounded-full
+                                    bg-orange-100 text-orange-600
+                                    flex items-center justify-center
+                                    text-xl">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="text-2xl font-bold text-gray-900">
+                                Book a Table
+                            </h3>
+
+                            <p class="text-gray-500 text-sm mt-1">
+                                Reserve your table today
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================== FORM ==================== -->
+
+                    <form
+                        id="reservation-form"
+                        class="space-y-5"
+                    >
+
+
+                        <!-- Full Name -->
+
+                        <div>
+
+                            <label
+                                for="name"
+                                class="block text-sm font-semibold
+                                       text-gray-700 mb-2"
+                            >
+
+                                Full Name
+
+                            </label>
+
+
+                            <div class="relative">
+
+                                <i
+                                    class="fa-solid fa-user
+                                           absolute left-4 top-1/2
+                                           -translate-y-1/2
+                                           text-gray-400"
+                                ></i>
+
+
+                                <input
+                                    id="name"
+                                    type="text"
+                                    placeholder="Enter your full name"
+                                    required
+                                    class="w-full pl-11 pr-4 py-3
+                                           border border-gray-200
+                                           rounded-xl outline-none
+                                           focus:border-orange-500
+                                           focus:ring-2
+                                           focus:ring-orange-100"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Email -->
+
+                        <div>
+
+                            <label
+                                for="email"
+                                class="block text-sm font-semibold
+                                       text-gray-700 mb-2"
+                            >
+
+                                Email Address
+
+                            </label>
+
+
+                            <div class="relative">
+
+                                <i
+                                    class="fa-solid fa-envelope
+                                           absolute left-4 top-1/2
+                                           -translate-y-1/2
+                                           text-gray-400"
+                                ></i>
+
+
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    required
+                                    class="w-full pl-11 pr-4 py-3
+                                           border border-gray-200
+                                           rounded-xl outline-none
+                                           focus:border-orange-500
+                                           focus:ring-2
+                                           focus:ring-orange-100"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Date & Time -->
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+
+                            <!-- Date -->
+
+                            <div>
+
+                                <label
+                                    for="date"
+                                    class="block text-sm font-semibold
+                                           text-gray-700 mb-2"
+                                >
+
+                                    Date
+
+                                </label>
+
+
+                                <input
+                                    id="date"
+                                    type="date"
+                                    required
+                                    class="w-full px-4 py-3
+                                           border border-gray-200
+                                           rounded-xl outline-none
+                                           focus:border-orange-500
+                                           focus:ring-2
+                                           focus:ring-orange-100"
+                                >
+
+                            </div>
+
+
+
+                            <!-- Time -->
+
+                            <div>
+
+                                <label
+                                    for="time"
+                                    class="block text-sm font-semibold
+                                           text-gray-700 mb-2"
+                                >
+
+                                    Time
+
+                                </label>
+
+
+                                <input
+                                    id="time"
+                                    type="time"
+                                    required
+                                    class="w-full px-4 py-3
+                                           border border-gray-200
+                                           rounded-xl outline-none
+                                           focus:border-orange-500
+                                           focus:ring-2
+                                           focus:ring-orange-100"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Number of Guests -->
+
+                        <div>
+
+                            <label
+                                for="guests"
+                                class="block text-sm font-semibold
+                                       text-gray-700 mb-2"
+                            >
+
+                                Number of Guests
+
+                            </label>
+
+
+                            <div class="relative">
+
+                                <i
+                                    class="fa-solid fa-users
+                                           absolute left-4 top-1/2
+                                           -translate-y-1/2
+                                           text-gray-400"
+                                ></i>
+
+
+                                <select
+                                    id="guests"
+                                    required
+                                    class="w-full pl-11 pr-4 py-3
+                                           border border-gray-200
+                                           rounded-xl outline-none
+                                           focus:border-orange-500
+                                           focus:ring-2
+                                           focus:ring-orange-100"
+                                >
+
+                                    <option value="">
+                                        Select guests
+                                    </option>
+
+                                    <option value="1 Guest">
+                                        1 Guest
+                                    </option>
+
+                                    <option value="2 Guests">
+                                        2 Guests
+                                    </option>
+
+                                    <option value="3 Guests">
+                                        3 Guests
+                                    </option>
+
+                                    <option value="4 Guests">
+                                        4 Guests
+                                    </option>
+
+                                    <option value="5 Guests">
+                                        5 Guests
+                                    </option>
+
+                                    <option value="6+ Guests">
+                                        6+ Guests
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Message -->
+
+                        <div>
+
+                            <label
+                                for="message"
+                                class="block text-sm font-semibold
+                                       text-gray-700 mb-2"
+                            >
+
+                                Message
+
+                            </label>
+
+
+                            <textarea
+                                id="message"
+                                rows="4"
+                                placeholder="Write your message..."
+                                class="w-full px-4 py-3
+                                       border border-gray-200
+                                       rounded-xl outline-none
+                                       resize-none
+                                       focus:border-orange-500
+                                       focus:ring-2
+                                       focus:ring-orange-100"
+                            ></textarea>
+
+                        </div>
+
+
+
+                        <!-- Submit -->
+
+                        <button
+                            type="submit"
+                            class="w-full flex items-center
+                                   justify-center gap-3
+                                   bg-orange-600 text-white
+                                   py-3.5 rounded-xl
+                                   font-bold
+                                   hover:bg-orange-700
+                                   hover:-translate-y-1
+                                   transition duration-300"
+                        >
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                            Reserve My Table
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================== MAP / LOCATION ==================== -->
+
+    <section class="py-20 bg-white">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-10">
+
+                <p class="text-orange-600 font-bold uppercase
+                          tracking-widest text-sm">
+
+                    Find Us
+
+                </p>
+
+
+                <h2 class="text-4xl md:text-5xl font-bold
+                           text-gray-900 mt-3">
+
+                    Visit Our
+
+                    <span class="text-orange-600">
+                        Restaurant
+                    </span>
+
+                </h2>
+
+
+                <p class="text-gray-500 mt-4">
+
+                    We are located in the heart of Downtown.
+
+                </p>
+
+            </div>
+
+
+            <!-- Map Placeholder -->
+
+            <div
+                class="h-80 rounded-3xl overflow-hidden
+                       bg-gray-200 flex items-center
+                       justify-center shadow-lg"
+            >
+
+                <div class="text-center">
+
+                    <div
+                        class="w-16 h-16 mx-auto rounded-full
+                               bg-orange-600 text-white
+                               flex items-center justify-center
+                               text-2xl mb-4"
+                    >
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
+
+
+                    <h3 class="text-2xl font-bold text-gray-900">
+
+                        La Bella Restaurant
+
+                    </h3>
+
+
+                    <p class="text-gray-500 mt-2">
+
+                        123 Main Street, Downtown
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer class="bg-gray-900 text-white">
+
+        <div class="max-w-7xl mx-auto px-6 py-14">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+
+                <!-- Logo -->
+
+                <div>
+
+                    <a
+                        href="index.html"
+                        class="flex items-center gap-3
+                               text-2xl font-bold text-orange-500"
+                    >
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                        La Bella
+
+                    </a>
+
+
+                    <p class="text-gray-400 leading-relaxed mt-5">
+
+                        Delicious food, beautiful moments and
+                        unforgettable dining experiences.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- Quick Links -->
+
+                <div>
+
+                    <h3 class="text-lg font-bold mb-5">
+
+                        Quick Links
+
+                    </h3>
+
+
+                    <ul class="space-y-3 text-gray-400">
+
+                        <li>
+
+                            <a
+                                href="index.html"
+                                class="hover:text-orange-500 transition"
+                            >
+                                Home
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                href="menu.html"
+                                class="hover:text-orange-500 transition"
+                            >
+                                Menu
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                href="about.html"
+                                class="hover:text-orange-500 transition"
+                            >
+                                About
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                href="contact.html"
+                                class="hover:text-orange-500 transition"
+                            >
+                                Contact
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Contact -->
+
+                <div>
+
+                    <h3 class="text-lg font-bold mb-5">
+
+                        Contact Us
+
+                    </h3>
+
+
+                    <div class="space-y-4 text-gray-400">
+
+                        <p class="flex items-center gap-3">
+
+                            <i class="fa-solid fa-phone text-orange-500"></i>
+
+                            +123 456 789
+
+                        </p>
+
+
+                        <p class="flex items-center gap-3">
+
+                            <i class="fa-solid fa-envelope text-orange-500"></i>
+
+                            hello@labella.com
+
+                        </p>
+
+
+                        <p class="flex items-center gap-3">
+
+                            <i class="fa-solid fa-location-dot text-orange-500"></i>
+
+                            123 Main Street, Downtown
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Copyright -->
+
+            <div
+                class="border-t border-gray-800
+                       mt-10 pt-6 text-center"
+            >
+
+                <p class="text-gray-500 text-sm">
+
+                    © <span class="current-year">2026</span>
+                    La Bella Restaurant.
+                    All rights reserved.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
